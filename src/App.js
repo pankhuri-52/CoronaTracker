@@ -9,12 +9,18 @@ class App extends React.Component {
     
     //constructor will automatically be created in the backend
     state = {
-        data : {}
+        data : {},
+        country : ''
     }
     
     async componentDidMount() { // especially with componentDidMount, the async keyword is put in the front
         const fetchedData = await fetchData();
         this.setState({data : fetchedData})
+    }
+
+    handleCountryChange = async (country) => {
+        console.log(country);
+        //fetch the data and set the state
     }
 
     render() {
@@ -23,7 +29,7 @@ class App extends React.Component {
             <div className={styles.container}>
                 <img className={styles.image} src={image} alt="COVID-19" />
                 <Cards data={data} />
-                <CountryPicker />
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
                 <Chart />
             </div>
         );
