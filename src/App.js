@@ -2,6 +2,8 @@ import React from 'react';
 import {Cards, Chart, CountryPicker} from './components';
 import styles from './App.module.css';
 import {fetchData} from './api'; // we don't need to mention index.js, it automatically searches for index.js first
+import image from './images/image.png';
+
  
 class App extends React.Component {
     
@@ -19,6 +21,7 @@ class App extends React.Component {
         const {data} = this.state;
         return (
             <div className={styles.container}>
+                <img className={styles.image} src={image} alt="COVID-19" />
                 <Cards data={data} />
                 <CountryPicker />
                 <Chart />
